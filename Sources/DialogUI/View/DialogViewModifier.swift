@@ -33,8 +33,9 @@ public struct DialogViewModifier<ContentView: View>: ViewModifier {
                         self.show = false
                     }
                 contentView()
-                    .animation(.easeIn)
+                    .animation(.easeInOut)
                     .transition(AnyTransition.scale(scale: .zero).combined(with: .opacity))
+                    
             }
         }
     }

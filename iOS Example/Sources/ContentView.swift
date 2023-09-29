@@ -17,7 +17,9 @@ struct ContentView: View {
         VStack(alignment: .center, spacing: 20) {
             Spacer()
             Button {
-                showDialog.toggle()
+                withAnimation {
+                    showDialog.toggle()
+                }
             } label: {
                 Text("Show dialog").foregroundColor(.white)
             }
@@ -35,7 +37,7 @@ struct ContentView: View {
     private func DialogContentEx() -> some View {
         VStack(spacing: 20) {
             Text("Dialog title").foregroundColor(.black).font(.system(size: 20, weight: Font.Weight.semibold))
-            Text("This is dialog message, a dummy decsription only to fill up the dialog demo text, so you can design whatever you like inside the dialog view content.").foregroundColor(.black).font(.system(size: 14, weight: Font.Weight.regular))
+            Text("This is dialog message, a dummy decsription only to fill up the dialog demo text, so you can design whatever you like inside the dialog view content.").foregroundColor(.black).font(.system(size: 14, weight: Font.Weight.regular)).multilineTextAlignment(.center)
             HStack(spacing: 10) {
                 Button {
                     self.showDialog = false
