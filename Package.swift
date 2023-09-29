@@ -7,7 +7,7 @@ let package = Package(
     name: "DialogUI",
     platforms: [
         .macOS(.v10_12),
-        .iOS(.v10),
+        .iOS(.v15),
         .tvOS(.v10),
         .watchOS(.v3)
     ],
