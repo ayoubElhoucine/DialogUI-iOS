@@ -24,16 +24,20 @@ public struct DialogViewModifier<ContentView: View>: ViewModifier {
     public func body(content: Content) -> some View {
         ZStack(alignment: .center) {
             content
+                .zIndex(0)
             if show {
                 Spacer()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.black.opacity(0.4))
                     .animation(.default, value: self.show)
+                    .zIndex(1)
                     .onTapGesture {
-                        self.show = false
+                        withAnimation {
+                            self.show = false
+                        }
                     }
                 contentView()
-                    .animation(.easeInOut)
+                    .zIndex(2)
                     .transition(AnyTransition.scale(scale: .zero).combined(with: .opacity))
                     
             }
